@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="space-y-12">
+    <section class="text-center py-16 animate-pulse">
+        <h1 class="text-6xl font-extrabold tracking-tight mb-4 gradient-text">Next-Gen Computer Vision</h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+            A production-ready AI platform for real-time animal detection, advanced face profiling, and intelligent
+            object counting.
+        </p>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Herd Detection Card -->
+        <a href="/herd" class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div
+                class="h-16 w-16 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                🐾
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Herd Detection</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Detect, count, and alert for animal herds in the wild. Supports real-time GPS map integration and
+                automated reporting.
+            </p>
+            <div class="text-amber-400 text-sm font-semibold flex items-center gap-2">
+                Launch Module &rarr;
+            </div>
+        </a>
+
+        <!-- Face Profiling Card -->
+        <a href="/face" class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div
+                class="h-16 w-16 bg-rose-500/10 text-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                👤
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Face Profiling</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Analyze facial landmarks with 68-point precision. Generate biometric profiles and psychological
+                personality insights.
+            </p>
+            <div class="text-rose-400 text-sm font-semibold flex items-center gap-2">
+                Launch Module &rarr;
+            </div>
+        </a>
+
+        <!-- Object Counting Card -->
+        <a href="/counter" class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div
+                class="h-16 w-16 bg-cyan-500/10 text-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                🔢
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Object Counting</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Universal object detection and counting utilizing YOLOv8n models. Fast, efficient, and capable of
+                multi-class tracking.
+            </p>
+            <div class="text-cyan-400 text-sm font-semibold flex items-center gap-2">
+                Launch Module &rarr;
+            </div>
+        </a>
+    </div>
+
+    <!-- Quick Stats / Logs -->
+    <div class="glass p-8 rounded-3xl mt-12 bg-slate-900/50">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            System Live Logs
+        </h3>
+        <div class="space-y-4 font-mono text-xs text-slate-500">
+            <div class="flex gap-4 border-l-2 border-indigo-500 pl-4 py-1">
+                <span class="text-indigo-400">[20:58:08]</span>
+                <span>System Initialization: Loading YOLOv8_Herd.pt... Success</span>
+            </div>
+            <div class="flex gap-4 border-l-2 border-slate-700 pl-4 py-1">
+                <span class="text-slate-500">[20:58:10]</span>
+                <span>Dlib Face Predictor 68 points loaded... OK</span>
+            </div>
+            <div class="flex gap-4 border-l-2 border-slate-700 pl-4 py-1">
+                <span class="text-slate-500">[20:58:12]</span>
+                <span>Leaflet Map Engine initialized for Serengeti Region.</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

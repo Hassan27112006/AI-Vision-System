@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div class="lg:col-span-2 space-y-8">
+        <div
+            class="glass p-8 rounded-3xl h-[600px] flex flex-col items-center justify-center relative overflow-hidden group">
+            <div id="loading" class="hidden absolute inset-0 bg-slate-900/80 z-20 flex items-center justify-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-rose-500"></div>
+            </div>
+            <img id="display-image" src="" alt=""
+                class="max-h-full max-w-full rounded-2xl shadow-2xl hidden z-10 transition-transform duration-500 group-hover:scale-[1.02]">
+            <div id="upload-prompt" class="text-center space-y-6">
+                <div
+                    class="h-24 w-24 bg-rose-500/10 text-rose-500 rounded-3xl flex items-center justify-center mx-auto text-4xl">
+                    👤
+                </div>
+                <h2 class="text-3xl font-bold">Face Profiling Intelligence</h2>
+                <p class="text-slate-400">Identify faces, extract landmarks, and generate psychological profiles.</p>
+                <div class="flex gap-4 justify-center">
+                    <label
+                        class="btn-premium px-8 py-3 rounded-2xl cursor-pointer font-bold text-white shadow-lg flex items-center gap-2">
+                        <span>Upload Profile</span>
+                        <input type="file" id="media-upload" class="hidden" accept="image/*">
+                    </label>
+                    <button id="start-webcam"
+                        class="bg-slate-800 hover:bg-slate-700 px-8 py-3 rounded-2xl font-bold flex items-center gap-2 transition-colors">
+                        <span>Start Webcam</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass p-8 rounded-3xl border-t-4 border-rose-500/50">
+            <h4 class="text-slate-400 text-xs uppercase tracking-widest font-bold mb-6">Personality Report</h4>
+            <div id="personality-report" class="space-y-6">
+                <div class="text-center py-8 text-slate-500">
+                    No results available. Upload an image to start profiling.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar (Biometrics) -->
+    <div class="lg:col-span-2 space-y-8">
+        <div class="glass p-8 rounded-3xl bg-slate-900/50">
+            <h4 class="text-slate-400 text-xs uppercase tracking-widest font-bold mb-8">Biometric Measurements</h4>
+            <div id="biometrics-container" class="space-y-8">
+                <!-- Measurements -->
+                <div class="flex justify-between items-center group">
+                    <span class="text-slate-400">Eye Distance</span>
+                    <div class="flex items-center gap-4">
+                        <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="eye-dist-bar" class="h-full bg-rose-500 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                        <span id="eye-dist-text" class="text-rose-400 font-bold min-w-[60px]">0 px</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center group">
+                    <span class="text-slate-400">Jaw Width</span>
+                    <div class="flex items-center gap-4">
+                        <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="jaw-width-bar" class="h-full bg-rose-400 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                        <span id="jaw-width-text" class="text-rose-300 font-bold min-w-[60px]">0 px</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center group">
+                    <span class="text-slate-400">Nose Height</span>
+                    <div class="flex items-center gap-4">
+                        <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="nose-height-bar" class="h-full bg-rose-400 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                        <span id="nose-height-text" class="text-rose-300 font-bold min-w-[60px]">0 px</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center group">
+                    <span class="text-slate-400">Face Ratio</span>
+                    <div class="flex items-center gap-4">
+                        <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="face-ratio-bar" class="h-full bg-rose-400 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                        <span id="face-ratio-text" class="text-rose-300 font-bold min-w-[60px]">0 %</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass p-8 rounded-3xl">
+            <h4 class="text-slate-400 text-xs uppercase tracking-widest font-bold mb-6">68-Point Landmark Extraction
+            </h4>
+            <div id="landmark-grid" class="grid grid-cols-8 gap-2">
+                <!-- Generated by JS -->
+                {% for i in range(64) %}
+                <div class="w-2 h-2 rounded-full bg-slate-800 border border-slate-700"></div>
+                {% endfor %}
+            </div>
+            <p class="text-xs text-slate-500 mt-6 italic">Visualizing Dlib shape predictor mapping.</p>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/face.js"></script>
+{% endblock %}

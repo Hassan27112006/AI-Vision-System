@@ -1,0 +1,15 @@
+flask
+flask-cors
+ultralytics
+opencv-python
+dlib
+numpy
+pandas
+pytest
+imutils
+requests
+tqdm
+gdown
+sqlalchemy
+flask-sqlalchemy
+wget

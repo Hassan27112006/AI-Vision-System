@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Models
+backend/models/*.pt
+backend/models/*.dat
+backend/models/*.xml
+backend/models/*.bz2
+
+# Data
+data/history.db
+data/*.csv
+frontend/static/uploads/*
+!frontend/static/uploads/.gitkeep
+
+# Logs
+*.log
